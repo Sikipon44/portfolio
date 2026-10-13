@@ -1,0 +1,8 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { articles, pageHead } from '@/lib/portfolio-data';
+import { PageIntro } from '@/components/portfolio/shared';
+export const Route=createFileRoute('/blog/')({head:()=>pageHead('Blog technique Java & architecture','Articles sur Java Spring Boot, Clean Architecture et Kafka. Notes techniques du portfolio de Fourat Nefoussi.'),component:Blog});
+function Blog(){const [filter,setFilter]=useState('Tous');return <main><PageIntro eyebrow="BLOG / ENGINEERING NOTES" title="Le code évolue. Les idées aussi." description="Des articles pédagogiques sur les systèmes distribués, la qualité du code et la mise en production. Une base éditoriale à enrichir."/><section className="section wrap pt-4"><div className="mb-8 flex flex-wrap gap-2">{['Tous','JAVA & SPRING','ARCHITECTURE','EVENT-DRIVEN'].map(f=><Button key={f} variant={f===filter?'default':'outline'} size="sm" onClick={()=>setFilter(f)} aria-pressed={f===filter}>{f}</Button>)}</div><div className="grid gap-5 md:grid-cols-3">{articles.filter(a=>filter==='Tous'||a.category===filter).map(a=><Link key={a.slug} to="/blog/$slug" params={{slug:a.slug}} className="article-card"><div className="eyebrow">{a.category}</div><h3>{a.title}</h3><p>{a.excerpt}</p><div className="mt-7 flex items-center justify-between text-xs text-muted-foreground"><span>{a.time} de lecture</span><ArrowUpRight size={16}/></div></Link>)}</div><p className="mt-8 text-xs text-muted-foreground">Articles de démonstration rédigés pour ce portfolio ; à relire et personnaliser avant publication.</p></section></main>}

@@ -30,7 +30,7 @@ function Index() {
                 <div className="mt-7 flex flex-wrap gap-3"><Button asChild size="lg"><Link to="/projets">Explorer mes
                     projets <ArrowUpRight/></Link></Button><CVButton outline/></div>
                 <div className="hero-note mt-7 flex flex-wrap gap-x-6 gap-y-3"><span
-                    className="flex items-center gap-1.5"><MapPin size={12}/> Paris, France</span><span
+                    className="flex items-center gap-1.5"><MapPin size={12}/> Metz, France</span><span
                     className="flex items-center gap-1.5"><Check size={13} className="text-primary"/> Banque & Assurance</span><span
                     className="flex items-center gap-1.5"><Check size={13} className="text-primary"/> Du code à la production</span>
                 </div>

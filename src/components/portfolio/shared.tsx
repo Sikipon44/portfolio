@@ -67,7 +67,7 @@ export function Footer() {
         </section>
         <footer className="footer wrap flex flex-wrap items-center justify-between gap-5">
             <span>© 2026 Fourat Nefoussi</span>
-            <div className="flex items-center gap-5"><span className="flex items-center gap-2"><MapPin size={12}/> Paris, France</span><a
+            <div className="flex items-center gap-5"><span className="flex items-center gap-2"><MapPin size={12}/> Metz, France</span><a
                 href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="Profil LinkedIn"
                 className="text-foreground"><Linkedin size={16}/></a><a href={`mailto:${profile.email}`}
                                                                         className="hover:text-primary">Me

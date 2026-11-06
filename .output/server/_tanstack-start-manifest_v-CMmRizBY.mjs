@@ -1,0 +1,80 @@
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CMmRizBY.js
+var tsrStartManifest = () => ({ routes: {
+	__root__: {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/__root.tsx",
+		children: [
+			"/",
+			"/blog",
+			"/contact",
+			"/expertise",
+			"/parcours",
+			"/projets"
+		],
+		preloads: [
+			"/assets/index-CDrKfpWM.js",
+			"/assets/useSelector-BcTnCC3_.js",
+			"/assets/root-CDpNo7ef.js"
+		],
+		scripts: [{ attrs: {
+			type: "module",
+			async: !0,
+			src: "/assets/index-CDrKfpWM.js"
+		} }]
+	},
+	"/": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/index.tsx",
+		children: void 0,
+		preloads: ["/assets/routes-DWkP0lCL.js", "/assets/check-Pl7x091K.js"]
+	},
+	"/blog": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/blog.tsx",
+		children: ["/blog/$slug", "/blog/"],
+		preloads: ["/assets/blog-BW9j3GOh.js"]
+	},
+	"/contact": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/contact.tsx",
+		children: void 0,
+		preloads: ["/assets/contact-BAoY2RIy.js", "/assets/check-Pl7x091K.js"]
+	},
+	"/expertise": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/expertise.tsx",
+		children: void 0,
+		preloads: ["/assets/expertise-VADup1FO.js"]
+	},
+	"/parcours": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/parcours.tsx",
+		children: void 0,
+		preloads: ["/assets/parcours-DmCPxenP.js"]
+	},
+	"/projets": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/projets.tsx",
+		children: ["/projets/$slug", "/projets/"],
+		preloads: ["/assets/projets-BW9j3GOh.js"]
+	},
+	"/blog/$slug": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/blog.$slug.tsx",
+		children: void 0,
+		preloads: ["/assets/blog._slug-BpxUoQ7y.js", "/assets/arrow-left-Bn_668Ht.js"]
+	},
+	"/projets/$slug": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/projets.$slug.tsx",
+		children: void 0,
+		preloads: [
+			"/assets/projets._slug-Bc78jCVG.js",
+			"/assets/arrow-left-Bn_668Ht.js",
+			"/assets/check-Pl7x091K.js"
+		]
+	},
+	"/blog/": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/blog.index.tsx",
+		children: void 0,
+		preloads: ["/assets/blog.index-BLl--tzj.js"]
+	},
+	"/projets/": {
+		filePath: "C:/Users/foura/Downloads/Portfolio/src/routes/projets.index.tsx",
+		children: void 0,
+		preloads: ["/assets/projets.index-B8Ky0oEg.js"]
+	}
+} });
+//#endregion
+export { tsrStartManifest };

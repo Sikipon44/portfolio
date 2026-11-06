@@ -17,11 +17,10 @@ import {
     ShieldCheck
 } from 'lucide-react';
 import {Button} from '@/components/ui/button';
-import cv from '@/assets/cv.pdf.asset.json';
 import {profile, projects, experiences, workingApproach} from '@/lib/portfolio-data';
 
 export function CVButton({outline = false}: { outline?: boolean }) {
-    return <Button asChild variant={outline ? 'outline' : 'default'} size="lg"><a href={cv.url}
+    return <Button asChild variant={outline ? 'outline' : 'default'} size="lg"><a href="/CV_Fourat_Nefoussi.pdf"
                                                                                   download="CV_Fourat_Nefoussi.pdf"
                                                                                   target="_blank"
                                                                                   rel="noreferrer"><Download/> Télécharger

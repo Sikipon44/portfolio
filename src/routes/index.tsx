@@ -9,11 +9,11 @@ import {
     ExpertiseCards,
     ProjectCard,
     Timeline,
-    Testimonials
+    WorkingApproach
 } from '@/components/portfolio/shared';
 
 export const Route = createFileRoute('/')({
-    head: () => pageHead('Développeur Java Senior · Freelance & CDI', 'Fourat Nefoussi, développeur backend Java et Spring Boot à Paris. Microservices, banque, assurance et CI/CD. Découvrez mes projets et mon parcours.'),
+    head: () => pageHead('Développeur Java Senior · Freelance & CDI', 'Fourat Nefoussi, Senior Java Backend Developer à Metz, France — 7+ ans d’expérience Java Spring Boot. Microservices, banque, assurance et CI/CD. Découvrez mes projets et mon parcours.'),
     component: Index
 });
 
@@ -25,12 +25,12 @@ function Index() {
             <div className="hero-content wrap reveal">
                 <div className="status"><span className="status-dot"/> À l’écoute d’opportunités · Freelance & CDI</div>
                 <h1>Fourat Nefoussi<span className="mt-2 block text-primary">Développeur Java<br/>Senior.</span></h1><p
-                className="hero-subtitle">Je construis des backends robustes, des microservices<br
-                className="hidden sm:block"/> évolutifs et du code qui dure.</p>
+                className="hero-subtitle">Je développe des backends Java pour la banque et l’assurance, de la conception
+                au déploiement en production. Des microservices fiables et du code maintenable.</p>
                 <div className="mt-7 flex flex-wrap gap-3"><Button asChild size="lg"><Link to="/projets">Explorer mes
                     projets <ArrowUpRight/></Link></Button><CVButton outline/></div>
                 <div className="hero-note mt-7 flex flex-wrap gap-x-6 gap-y-3"><span
-                    className="flex items-center gap-1.5"><MapPin size={12}/> Metz, France</span><span
+                    className="flex items-center gap-1.5"><MapPin size={12}/> {profile.location}</span><span
                     className="flex items-center gap-1.5"><Check size={13} className="text-primary"/> Banque & Assurance</span><span
                     className="flex items-center gap-1.5"><Check size={13} className="text-primary"/> Du code à la production</span>
                 </div>
@@ -44,7 +44,7 @@ function Index() {
             <div className="wrap grid grid-cols-2 sm:grid-cols-4">{[{
                 n: `${profile.experienceYears}`,
                 suffix: '+',
-                text: 'Années d’expérience · selon le CV'
+                text: 'Années d’expérience · depuis octobre 2019'
             }, {
                 n: `${profile.sectors}`,
                 suffix: '',
@@ -53,7 +53,7 @@ function Index() {
                 n: `${profile.employers}`,
                 suffix: '',
                 text: 'Entreprises dans mon parcours'
-            }, {n: `${profile.teamSize}`, suffix: '', text: 'Collaborateurs dans l’équipe LCL'}].map(s => <div
+            }, {n: `${profile.teamSize}`, suffix: '', text: 'Collaborateurs dans l’équipe SOLIFE'}].map(s => <div
                 key={s.text} className="stat">
                 <div className="stat-value">{s.n}<span>{s.suffix}</span></div>
                 <div className="stat-label">{s.text}</div>
@@ -92,13 +92,8 @@ function Index() {
                                                           title="Une expertise qui se construit sur le terrain."
                                                           link="/parcours" label="Mon parcours complet"/><Timeline/>
         </section>
-        <section className="section border-y border-border">
-            <div className="wrap"><SectionHeading eyebrow="04 / REGARDS CROISÉS"
-                                                  title="La confiance se construit en équipe."
-                                                  description="Emplacements réservés aux recommandations de mes collaborateurs."/><Testimonials/>
-            </div>
-        </section>
-        <section className="section wrap"><SectionHeading eyebrow="05 / NOTES TECHNIQUES"
+        <WorkingApproach/>
+        <section className="section wrap"><SectionHeading eyebrow="04 / NOTES TECHNIQUES"
                                                           title="Comprendre. Construire. Partager." link="/blog"
                                                           label="Tous les articles"/>
             <div className="grid gap-4 md:grid-cols-3">{articles.map(a => <Link key={a.slug} to="/blog/$slug"

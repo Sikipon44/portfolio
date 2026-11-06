@@ -10,8 +10,10 @@
 <!-- LOVABLE:END -->
 
 ## Portfolio architecture
-- Keep portfolio content in `src/lib/portfolio-data.ts` and presentation in reusable portfolio components; one source keeps cards, detail pages and contact links consistent.
+- Keep portfolio content in `src/lib/portfolio-data.ts` and presentation in reusable portfolio components; one source keeps cards, full detail environments, summarized timelines, categorized skills and contact links consistent.
 - Use separate TanStack content routes and index leaves for projects and blog; parent routes render Outlet to preserve navigation and SSR.
 - Contact is a client-side mailto composition form, not a stored or delivered submission; this avoids implying an unconfigured mail service.
-- Mark demonstration articles and testimonials, and separate CV-evidenced experience from exploratory skills; professional claims must remain auditable.
+- Mark demonstration articles and invite real recommendations instead of fictional quotations; separate professional, academic and general skill knowledge to keep claims auditable.
 - Pre-optimize shared UI dependencies with React in Vite; late discovery can mix optimizer generations and trigger invalid React hooks during preview hydration.
+
+- Keep the legacy Well Being Work slug redirect in the project loader with a permanent status; published inbound links must remain valid while canonical cards use the corrected slug.

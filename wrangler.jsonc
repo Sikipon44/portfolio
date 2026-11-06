@@ -1,11 +1,10 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  // Entry point and assets are passed by the deploy workflow, because the
+  // build output folder can differ between environments (dist/ or .output/).
   "name": "fourat-portfolio",
-  "main": "dist/server/index.mjs",
   "compatibility_date": "2026-01-01",
   "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": "dist/client",
-    "binding": "ASSETS"
-  }
+  // Publie le worker sur un sous-domaine workers.dev (fourat-portfolio.<votre-sous-domaine>.workers.dev)
+  "workers_dev": true,
+  "preview_urls": false
 }

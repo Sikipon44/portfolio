@@ -13,11 +13,12 @@ import {
     Blocks,
     Database,
     Code2,
-    Linkedin
+    Linkedin,
+    ShieldCheck
 } from 'lucide-react';
 import {Button} from '@/components/ui/button';
-import cv from '@/assets/cv.pdf';
-import {profile, projects} from '@/lib/portfolio-data';
+import cv from '@/assets/cv.pdf.asset.json';
+import {profile, projects, experiences, workingApproach} from '@/lib/portfolio-data';
 
 export function CVButton({outline = false}: { outline?: boolean }) {
     return <Button asChild variant={outline ? 'outline' : 'default'} size="lg"><a href={cv.url}
@@ -67,11 +68,12 @@ export function Footer() {
         </section>
         <footer className="footer wrap flex flex-wrap items-center justify-between gap-5">
             <span>© 2026 Fourat Nefoussi</span>
-            <div className="flex items-center gap-5"><span className="flex items-center gap-2"><MapPin size={12}/> Metz, France</span><a
-                href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="Profil LinkedIn"
-                className="text-foreground"><Linkedin size={16}/></a><a href={`mailto:${profile.email}`}
-                                                                        className="hover:text-primary">Me
-                contacter <span aria-hidden="true">↗</span></a></div>
+            <div className="flex items-center gap-5"><span className="flex items-center gap-2"><MapPin
+                size={12}/> {profile.location}</span><a href={profile.linkedin} target="_blank" rel="noreferrer"
+                                                        aria-label="Profil LinkedIn"
+                                                        className="text-foreground"><Linkedin size={16}/></a><a
+                href={`mailto:${profile.email}`} className="hover:text-primary">Me contacter <span
+                aria-hidden="true">↗</span></a></div>
         </footer>
     </>
 }
@@ -114,7 +116,7 @@ export function ExpertiseCards() {
         icon: Workflow,
         title: 'DevOps & production',
         description: 'Du code à la production, sans rupture. Automatisation des livraisons, observabilité et maîtrise du cycle de vie.',
-        tags: ['CI/CD', 'Docker', 'Kubernetes', 'ArgoCD']
+        tags: ['GitLab CI/CD', 'ArgoCD', 'Grafana', 'JMeter']
     }];
     return <div className="grid gap-4 md:grid-cols-3">{cards.map(c => <div key={c.title} className="skill-card">
         <c.icon className="skill-icon" size={28} strokeWidth={1.5}/>
@@ -152,45 +154,29 @@ export function ProjectCard({project}: { project: typeof projects[number] }) {
 }
 
 export function Timeline() {
-    return <div>{[{
-        date: 'JAN. 2024 — AUJOURD’HUI',
-        company: 'LCL',
-        role: 'Développeur Backend · Paris',
-        description: 'Application mobile LCL Mes Comptes — architecture microservices.',
-        items: ['Développement d’API Java Spring Boot et NestJS.', 'Déploiement, suivi de production, sécurité et tests de charge.', 'Revues de code et accompagnement des nouveaux arrivants.']
-    }, {
-        date: 'OCT. 2019 — JAN. 2024',
-        company: 'VERMEG',
-        role: 'Développeur Java · Tunis',
-        description: 'SOLIFE — assurance-vie, épargne, retraite et prévoyance.',
-        items: ['Responsabilité du module ODS dans une équipe de 7 personnes.', 'Développement Java, Oracle et PL/SQL ; principes SOLID et refactoring.', 'Maintenance évolutive et corrective, tests et mentoring.']
-    }, {
-        date: 'FÉV. 2019 — JUIN 2019',
-        company: 'GTI',
-        role: 'Développeur Full Stack Java · Tunis',
-        description: 'Conception d’une application d’instruction de dossiers de crédit.',
-        items: ['Développement JSF, Spring Security et Spring Data.', 'Conception UML, Scrum et tests unitaires JUnit.']
-    }].map(e => <div className="timeline-item" key={e.company}>
+    return <div>{experiences.map(e => <div className="timeline-item" key={e.company}>
         <div className="timeline-date">{e.date}</div>
         <div className="timeline-body"><h3 className="mb-2">{e.company}</h3>
             <div className="mb-4 text-sm text-primary">{e.role}</div>
-            <p>{e.description}</p>
+            <p>{e.description}</p>{e.environment &&
+                <div className="mb-5 flex flex-wrap gap-2">{e.environment.map(t => <span className="tag"
+                                                                                         key={t}>{t}</span>)}</div>}
             <ul className="list-disc pl-4">{e.items.map(i => <li key={i}>{i}</li>)}</ul>
-        </div>
-    </div>)}</div>
-}
-
-export function Testimonials() {
-    return <div className="grid gap-4 md:grid-cols-2">{[{
-        quote: '« Fourat apporte une vraie rigueur dans la conception des API et garde toujours la production en tête. »',
-        role: 'Tech Lead · Banque'
-    }, {
-        quote: '« Un développeur autonome, attentif à la qualité du code et au partage de connaissances avec l’équipe. »',
-        role: 'Engineering Manager · Assurance'
-    }].map(t => <div key={t.role} className="testimonial"><span className="eyebrow text-muted-foreground">TÉMOIGNAGE FICTIF · À REMPLACER</span>
-        <blockquote>{t.quote}</blockquote>
-        <div className="text-xs text-muted-foreground">Nom à renseigner <span className="mx-2">/</span> {t.role}</div>
+            {e.slug && <Link to="/projets/$slug" params={{slug: e.slug}}
+                             className="mt-4 inline-flex items-center gap-2 text-xs text-primary">Contributions &
+                environnement <ArrowUpRight size={14}/></Link>}</div>
     </div>)}</div>
 }
 
 export {ArrowRight};
+
+export function WorkingApproach() {
+    return <section className="section border-t border-border">
+        <div className="wrap"><SectionHeading eyebrow="MA FAÇON DE TRAVAILLER"
+                                              title="Du code maintenable. Une collaboration durable."/>
+            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{workingApproach.map(item => <li key={item}
+                                                                                                      className="flex items-start gap-3 text-sm text-muted-foreground">
+                <ShieldCheck size={18} className="shrink-0 text-primary"/>{item}</li>)}</ul>
+        </div>
+    </section>
+}
